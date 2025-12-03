@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>UCIG GROUP – Data That Drives Decisions</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+<!-- Navbar -->
+<header class="hero">
+    <div class="navbar">
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#tutoring">Tutoring</a>
+        <a href="#testimonials">Testimonials</a>
+        <a href="#contact">Contact</a>
+    </div>
+
+    <div class="hero-content">
+        <h1>UCIG GROUP</h1>
+        <h2>Data That Drives Insights</h2>
+        <p>Turning raw data into actionable insights for growth, efficiency, and informed decisions.</p>
+    </div>
+</header>
+
+<!-- About Section -->
+<section id="about" class="section about-section">
+    <h2>About UCIG GROUP</h2>
+    <div class="about-cards">
+        <div class="about-card">
+            <h3>Vision</h3>
+            <p>To be the trusted analytics partner that empowers organizations to unlock the full potential of their data.</p>
+        </div>
+        <div class="about-card">
+            <h3>Who We Are</h3>
+            <p>UCIG GROUP is a premier data analytics consultancy transforming raw data into strategic value. We combine statistical modeling, BI, and data visualization to deliver actionable insights for corporates, SMEs, government bodies, and NGOs.</p>
+        </div>
+        <div class="about-card">
+            <h3>Mission</h3>
+            <p>Deliver accurate, accessible, and impactful data solutions supporting growth, efficiency, and informed decision-making.</p>
+        </div>
+    </div>
+</section>
+
+<!-- Services Section -->
+<section id="services" class="section">
+    <h2>Our Core Services</h2>
+    <div class="services-container">
+        <div class="service-card">Data Analysis & Insights</div>
+        <div class="service-card">Business Intelligence Dashboards</div>
+        <div class="service-card">Survey Design & Analysis</div>
+        <div class="service-card">Statistical Modeling & Forecasting</div>
+        <div class="service-card">Data Cleaning & Automation</div>
+    </div>
+</section>
+
+<!-- Charts Section -->
+<section id="charts" class="section">
+    <h2>Data Analytics Examples</h2>
+    <div class="charts-container">
+        <div class="chart-card">
+            <h3>Average Math Scores Improvement</h3>
+            <canvas id="lineChart"></canvas>
+        </div>
+        <div class="chart-card">
+            <h3>Students Joined per Grade Group</h3>
+            <canvas id="barChart"></canvas>
+        </div>
+        <div class="chart-card">
+            <h3>Tutoring Program Distribution</h3>
+            <canvas id="pieChart"></canvas>
+        </div>
+    </div>
+</section>
+
+<!-- Tutoring Section -->
+<section id="tutoring" class="section">
+    <h2>Tutoring</h2>
+    <div class="tutoring-cards">
+        <div class="tutor-card">
+            <h3>Grade 4–7</h3>
+            <p>Fundamentals & Exam Prep</p>
+            <p class="price">R1000 / month</p>
+        </div>
+        <div class="tutor-card">
+            <h3>Grade 8–12</h3>
+            <p>Advanced Topics & Readiness</p>
+            <p class="price">R1500 / month</p>
+        </div>
+    </div>
+
+    <!-- Apply Now heading above form -->
+    <h3 class="apply-heading">Apply Now</h3>
+    <form class="form">
+        <input type="text" placeholder="Full Name" required>
+        <input type="email" placeholder="Email" required>
+        <input type="tel" placeholder="Phone Number" required>
+        <select required>
+            <option value="">Select Grade Group</option>
+            <option>Grade 4–7 (R1000)</option>
+            <option>Grade 8–12 (R1500)</option>
+        </select>
+        <textarea placeholder="Additional Information"></textarea>
+        <button type="submit">Submit Application</button>
+    </form>
+</section>
+
+<!-- Testimonials Section -->
+<section id="testimonials" class="section testimonial-section">
+    <h2>Testimonials</h2>
+    <div class="testimonial-slider">
+        <div class="testimonial">
+            "My daughter is finally enjoying math and tackling problems on her own!" – Deliwe M.
+        </div>
+        <div class="testimonial">
+            "I've noticed real progress. We also discovered patterns in our child's learning we hadn’t noticed before." – Anonymous
+        </div>
+        <div class="testimonial">
+            "My child’s math skills improved rapidly. The insights from the tutor helped us understand where she needed support." – Sizakele M.
+        </div>
+        <div class="testimonial">
+            "Tutoring increased my child’s confidence and I have seen a significant improvement in her marks." – Nomsa T.
+        </div>
+    </div>
+</section>
+
+<!-- Contact Section -->
+<section id="contact" class="section">
+    <h2>Contact Us</h2>
+    <p>Email: yolandk@ucig.co.za</p>
+    <p>Phone: 082 899 1153</p>
+    <p>Pretoria, South Africa</p>
+</section>
+
+<footer>
+    <p>© 2025 UCIG GROUP – Data That Drives Decisions</p>
+</footer>
+
+<script>
+// Scroll fade-in
+const sections = document.querySelectorAll('.section');
+function revealSections() {
+    const triggerBottom = window.innerHeight * 0.85;
+    sections.forEach(section => {
+        const sectionTop = section.getBoundingClientRect().top;
+        if(sectionTop < triggerBottom) section.classList.add('visible');
+    });
+}
+window.addEventListener('scroll', revealSections);
+window.addEventListener('load', revealSections);
+
+// Testimonials rotation
+const testimonials = document.querySelectorAll('.testimonial');
+let tIndex = 0;
+setInterval(() => {
+    testimonials.forEach((t,i)=> t.style.display = (i===tIndex?'block':'none'));
+    tIndex = (tIndex + 1) % testimonials.length;
+},4000);
+
+// Charts with vibrant, realistic data
+new Chart(document.getElementById('lineChart').getContext('2d'), {
+    type: 'line',
+    data: {
+        labels: ['Month 1','Month 2','Month 3','Month 4','Month 5','Month 6'],
+        datasets: [{
+            label: 'Average Math Score (%)',
+            data: [52, 57, 63, 68, 74, 80],
+            borderColor: '#1E90FF',
+            backgroundColor: 'rgba(30,144,255,0.2)',
+            fill:true,
+            tension:0.4
+        }]
+    },
+    options:{responsive:true, maintainAspectRatio:false, animation:{duration:1500}}
+});
+
+new Chart(document.getElementById('barChart').getContext('2d'), {
+    type: 'bar',
+    data: {
+        labels:['Grade 4–7','Grade 8–12','Extra Program','Advanced Skills'],
+        datasets:[{
+            label:'Students Joined',
+            data:[45,28,20,15],
+            backgroundColor:['#1E90FF','#32CD32','#FFD700','#FF69B4']
+        }]
+    },
+    options:{responsive:true, maintainAspectRatio:false, animation:{duration:1500}}
+});
+
+new Chart(document.getElementById('pieChart').getContext('2d'), {
+    type:'pie',
+    data:{
+        labels:['Grade 4–7','Grade 8–12','Extra Program','Advanced Skills'],
+        datasets:[{
+            data:[45,28,20,15],
+            backgroundColor:['#1E90FF','#32CD32','#FFD700','#FF69B4']
+        }]
+    },
+    options:{responsive:true, maintainAspectRatio:false, animation:{duration:1500}}
+});
+</script>
+</body>
+</html>
