@@ -3,10 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>UCIG GROUP | Data Analytics and Consulting </title>
+<title>UCIG GROUP | Data Analytics and Consulting</title>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
 
@@ -22,7 +21,7 @@
 
     <div class="hero-content">
         <h1>UCIG GROUP</h1>
-        <h2>Data That Drives Insights</h2>
+        <h2 id="rotating-headline">Data That Drives Insights</h2>
         <p>Turning raw data into actionable insights for growth, efficiency, and informed decisions.</p>
     </div>
 </header>
@@ -30,18 +29,32 @@
 <!-- About Section -->
 <section id="about" class="section about-section">
     <h2>About UCIG GROUP</h2>
-    <div class="about-cards">
-        <div class="about-card">
-            <h3>Vision</h3>
-            <p>To be the trusted analytics partner that empowers organizations to unlock the full potential of their data.</p>
+    <div class="about-wrapper">
+        <!-- Left side: animated bars representing analytics -->
+        <div class="about-left">
+            <div class="animated-bars">
+                <div class="bar" style="height:70%"></div>
+                <div class="bar" style="height:50%"></div>
+                <div class="bar" style="height:80%"></div>
+                <div class="bar" style="height:60%"></div>
+                <div class="bar" style="height:90%"></div>
+            </div>
         </div>
-        <div class="about-card">
-            <h3>Who We Are</h3>
-            <p>UCIG GROUP is a premier data analytics consultancy transforming raw data into strategic value. We combine statistical modeling, BI, and data visualization to deliver actionable insights for corporates, SMEs, government bodies, and NGOs.</p>
-        </div>
-        <div class="about-card">
-            <h3>Mission</h3>
-            <p>Deliver accurate, accessible, and impactful data solutions supporting growth, efficiency, and informed decision-making.</p>
+
+        <!-- Right side: About cards in new order -->
+        <div class="about-right">
+            <div class="about-card slide-in">
+                <h3>Who We Are</h3>
+                <p>UCIG GROUP is a leading data analytics consultancy blending statistical modeling, business intelligence, and visualization to turn raw data into strategic advantage.</p>
+            </div>
+            <div class="about-card slide-in">
+                <h3>Vision</h3>
+                <p>Empower organizations to unlock the true potential of their data, transforming numbers into actionable growth and insight.</p>
+            </div>
+            <div class="about-card slide-in">
+                <h3>Mission</h3>
+                <p>Deliver precise, actionable, and impactful data solutions that enable smart decisions and sustainable growth for our clients.</p>
+            </div>
         </div>
     </div>
 </section>
@@ -55,25 +68,6 @@
         <div class="service-card">Survey Design & Analysis</div>
         <div class="service-card">Statistical Modeling & Forecasting</div>
         <div class="service-card">Data Cleaning & Automation</div>
-    </div>
-</section>
-
-<!-- Charts Section -->
-<section id="charts" class="section">
-    <h2>Data Analytics Examples</h2>
-    <div class="charts-container">
-        <div class="chart-card">
-            <h3>Average Math Scores Improvement</h3>
-            <canvas id="lineChart"></canvas>
-        </div>
-        <div class="chart-card">
-            <h3>Students Joined per Grade Group</h3>
-            <canvas id="barChart"></canvas>
-        </div>
-        <div class="chart-card">
-            <h3>Tutoring Program Distribution</h3>
-            <canvas id="pieChart"></canvas>
-        </div>
     </div>
 </section>
 
@@ -98,28 +92,17 @@
         </div>
     </div>
 
-    <!-- Apply Now heading above form -->
     <h3 class="apply-heading">Apply Now</h3>
-
-    <!-- Custom Dropdown Form -->
     <form class="form">
         <input type="text" placeholder="Full Name" required>
         <input type="email" placeholder="Email" required>
         <input type="tel" placeholder="Phone Number" required>
-
-        <div class="custom-dropdown">
-            <div class="dropdown-selected">
-                Select Grade Group
-                <span class="dropdown-arrow">&#9662;</span>
-            </div>
-            <div class="dropdown-options">
-                <div class="dropdown-option">Grade 4–7 (R1000)</div>
-                <div class="dropdown-option">Grade 8–12 (R1500)</div>
-                <div class="dropdown-option highlight-option">Undergraduate & MBA Statistics</div>
-            </div>
-            <input type="hidden" name="gradeGroup" required>
-        </div>
-
+        <select required>
+            <option value="">Select Grade Group</option>
+            <option>Grade 4–7 (R1000)</option>
+            <option>Grade 8–12 (R1500)</option>
+            <option>Undergraduate / MBA Statistics</option>
+        </select>
         <textarea placeholder="Additional Information"></textarea>
         <button type="submit">Submit Application</button>
     </form>
@@ -129,18 +112,10 @@
 <section id="testimonials" class="section testimonial-section">
     <h2>Testimonials</h2>
     <div class="testimonial-slider">
-        <div class="testimonial">
-            "My daughter is finally enjoying math and tackling problems on her own!" – Deliwe M.
-        </div>
-        <div class="testimonial">
-            "I've noticed real progress. We also discovered patterns in our child's learning we hadn’t noticed before." – Anonymous
-        </div>
-        <div class="testimonial">
-            "My child’s math skills improved rapidly. The insights from the tutor helped us understand where she needed support." – Sizakele M.
-        </div>
-        <div class="testimonial">
-            "Tutoring increased my child’s confidence and I have seen a significant improvement in her marks." – Nomsa T.
-        </div>
+        <div class="testimonial">"My daughter is finally enjoying math and tackling problems on her own!" – Deliwe M.</div>
+        <div class="testimonial">"I've noticed real progress. We also discovered patterns in our child's learning we hadn’t noticed before." – Anonymous</div>
+        <div class="testimonial">"My child’s math skills improved rapidly. The insights from the tutor helped us understand where she needed support." – Sizakele M.</div>
+        <div class="testimonial">"Tutoring increased my child’s confidence and I have seen a significant improvement in her marks." – Nomsa T.</div>
     </div>
 </section>
 
@@ -169,6 +144,20 @@ function revealSections() {
 window.addEventListener('scroll', revealSections);
 window.addEventListener('load', revealSections);
 
+// Rotating hero headline
+const headlines = [
+    "Data That Drives Insights",
+    "Transforming Numbers Into Strategy",
+    "Analytics That Empower Growth",
+    "Turning Data Into Actionable Decisions"
+];
+let hIndex = 0;
+const headlineElement = document.getElementById("rotating-headline");
+setInterval(() => {
+    hIndex = (hIndex + 1) % headlines.length;
+    headlineElement.textContent = headlines[hIndex];
+}, 3000);
+
 // Testimonials rotation
 const testimonials = document.querySelectorAll('.testimonial');
 let tIndex = 0;
@@ -176,76 +165,6 @@ setInterval(() => {
     testimonials.forEach((t,i)=> t.style.display = (i===tIndex?'block':'none'));
     tIndex = (tIndex + 1) % testimonials.length;
 },4000);
-
-// Charts with vibrant, realistic data
-new Chart(document.getElementById('lineChart').getContext('2d'), {
-    type: 'line',
-    data: {
-        labels: ['Month 1','Month 2','Month 3','Month 4','Month 5','Month 6'],
-        datasets: [{
-            label: 'Average Math Score (%)',
-            data: [52, 57, 63, 68, 74, 80],
-            borderColor: '#1E90FF',
-            backgroundColor: 'rgba(30,144,255,0.2)',
-            fill:true,
-            tension:0.4
-        }]
-    },
-    options:{responsive:true, maintainAspectRatio:false, animation:{duration:1500}}
-});
-
-new Chart(document.getElementById('barChart').getContext('2d'), {
-    type: 'bar',
-    data: {
-        labels:['Grade 4–7','Grade 8–12','Extra Program','Advanced Skills'],
-        datasets:[{
-            label:'Students Joined',
-            data:[45,28,20,15],
-            backgroundColor:['#1E90FF','#32CD32','#FFD700','#FF69B4']
-        }]
-    },
-    options:{responsive:true, maintainAspectRatio:false, animation:{duration:1500}}
-});
-
-new Chart(document.getElementById('pieChart').getContext('2d'), {
-    type:'pie',
-    data:{
-        labels:['Grade 4–7','Grade 8–12','Extra Program','Advanced Skills'],
-        datasets:[{
-            data:[45,28,20,15],
-            backgroundColor:['#1E90FF','#32CD32','#FFD700','#FF69B4']
-        }]
-    },
-    options:{responsive:true, maintainAspectRatio:false, animation:{duration:1500}}
-});
-
-// Custom Dropdown Logic with Animation and Arrow
-document.querySelectorAll('.custom-dropdown').forEach(dropdown => {
-    const selected = dropdown.querySelector('.dropdown-selected');
-    const options = dropdown.querySelector('.dropdown-options');
-    const hiddenInput = dropdown.querySelector('input[type="hidden"]');
-
-    selected.addEventListener('click', () => {
-        options.classList.toggle('show');
-        selected.classList.toggle('active'); 
-    });
-
-    options.querySelectorAll('.dropdown-option').forEach(option => {
-        option.addEventListener('click', () => {
-            selected.textContent = option.textContent;
-            hiddenInput.value = option.textContent;
-            options.classList.remove('show');
-            selected.classList.remove('active'); 
-        });
-    });
-
-    document.addEventListener('click', e => {
-        if(!dropdown.contains(e.target)) {
-            options.classList.remove('show');
-            selected.classList.remove('active'); 
-        }
-    });
-});
 </script>
 </body>
 </html>
